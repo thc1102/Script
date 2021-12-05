@@ -92,12 +92,12 @@ def cfd_qq(def_start_time):
         put_envs(u_cookie.get('_id'), u_cookie.get('name'), u_cookie.get('value'), msg)
         disable_env(u_cookie.get('_id'))
     elif data['iRet'] == 2016:
-        # 需要加
-        start_time = float(u_start_time) + float(cfd_offset_time)
-        put_envs(u_start_dist.get('_id'), u_start_dist.get('name'), str(start_time)[:8])
-    elif data['iRet'] == 2013:
         # 需要减
         start_time = float(u_start_time) - float(cfd_offset_time)
+        put_envs(u_start_dist.get('_id'), u_start_dist.get('name'), str(start_time)[:8])
+    elif data['iRet'] == 2013:
+        # 需要加
+        start_time = float(u_start_time) + float(cfd_offset_time)
         put_envs(u_start_dist.get('_id'), u_start_dist.get('name'), str(start_time)[:8])
     elif data['iRet'] == 1014:
         # URL过期
@@ -151,4 +151,3 @@ if __name__ == '__main__':
         else:
             cfd_qq(u_start_sleep)
     print("- 主逻辑程序结束")
-
